@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+	<!-- 제이쿼리 -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/9a0994e5cb.js" crossorigin="anonymous"></script>
+	
+	<title>인스타그램</title>
+	
+	<style>
+		body {
+			background-color: #FAFAFA
+		}
+		
+		header {
+			height : 60px;
+			background-color: white;
+			border-bottom: 1px solid #DBDBDB;
+		}
+		
+		.search-input {
+			border : 0px ;
+			background-color: #EFEFEF;
+			width : 270px;
+			border-radius: 10px
+		}
+		
+		.front-area {
+			width : 50%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		
+		.user-area {
+			display: flex;
+			align-items: center;
+			
+		}
+		
+		.fa-house {
+			display : flex;
+			align-items : center;
+			width: 35px;
+		    height: 35px; 
+		}
+		
+		.fa-paper-plane {
+			display : flex;
+			align-items : center;
+			width: 35px;
+		    height: 35px; 
+		}
+		
+		.fa-square-plus {
+			display : flex;
+			align-items : center;
+			width: 35px;
+		    height: 35px;
+		}
+		
+		.profile-wrap {
+		    width: 24px;
+		    height: 24px; 
+		    border-radius: 70%;
+		    overflow: hidden;
+		    display: flex;
+		}
+		
+		.profile {
+		    width: 100%;
+		    height: 100%;
+		    object-fit: cover;
+		}
+		
+		.content-area {
+			margin : auto;
+			margin-top : 30px;
+			height : 1000px;
+			width : 43%;
+			display: flex;
+		}
+		
+		.content-area .timeLine {
+			height : 1000px;
+			width : 470px;
+		}
+		
+		.post-wrap {
+			width : 470px;
+			background-color : white;
+			border : 1px solid #DBDBDB;
+			border-radius: 8px;
+			
+		}
+		
+		.post-header {
+			height : 55px;
+			border-bottom : 1px solid #DBDBDB;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding : 13px;
+		}
+		
+		.post-header .header-profile {
+			display: flex;
+			align-items: center;
+		}
+
+		.post-header .header-profile .profile-wrap {
+			width: 32px; 
+		    height: 32px; 
+		    border-radius: 70%;
+		    overflow: hidden;
+		    display: flex;
+		}
+		
+		.post-image {
+			overflow: hidden;
+		}
+		
+		.post-image .images {
+			object-fit: cover;
+		}
+		
+		.post-image .reaction {
+			display: flex;
+			margin: 10px;
+		
+		}
+		
+		.post-image .reaction .fa-heart, .fa-comment {
+			font-size: 24px
+		}
+		.post-like {
+			display: flex;
+			align-items : center;
+			padding: 0px 10px 5px 10px;
+		}
+		
+		.post-cont {
+			display: flex;
+			padding: 0px 10px 5px 10px;
+		}
+		
+		.comment-list {
+			padding: 0px 10px 5px 10px;
+		}
+		
+		.comment-input {
+			display: flex;
+			align-items : center;
+			border-top : 1px solid #DBDBDB;
+			padding: 0px 10px 5px 10px;
+		}
+		
+		.comment-count {
+			color : #DBDBDB;
+		}
+		
+		.comment-txt {
+			border : none;
+			width : 90%;
+		}
+		
+		.comment-btn {
+			border : none;
+			background-color: none;
+		}
+		
+		.my-info {
+			padding: 5px 30px 30px 30px;
+		}
+		
+		.my-info .profile-wrap {
+			width: 56px;
+		    height: 56px; 
+		    border-radius: 70%;
+		    overflow: hidden;
+		    display: flex;
+		}
+		
+		.footer {
+			color : #DBDBDB;
+			padding: 5px 30px 30px 30px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<header class="d-flex justify-content-center">
+			<div class="front-area">
+				<div class="logo-area">
+					<img id="logo" src="D:\factory\ws_sts_4151\instagram\public\resources\images\logo.PNG">
+				</div>
+				<div class="search-area">
+					<input type="text" class="form-control search-input">
+				</div>
+				<div class="user-area">
+					<i class="fa-solid fa-house"></i>
+					<i class="fa-regular fa-paper-plane"></i>
+					<i class="fa-regular fa-square-plus"></i>
+					<div class="profile-wrap">
+						<img class="profile" src="D:\factory\ws_sts_4151\instagram\public\resources\images\dog2.jpg">
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="content-area">
+			<section class="timeLine">
+				<div class="post-wrap">
+					<div class="post-header">
+						<div class="header-profile">
+							<div class="profile-wrap mr-2">
+								<img class="profile" src="D:\factory\ws_sts_4151\instagram\public\resources\images\dog2.jpg">
+							</div>
+							<span>user</span>
+						</div>
+						<i class="fa-solid fa-ellipsis"></i>
+					</div>
+					<div class="post-image">
+						<img class="images" src="D:\factory\ws_sts_4151\instagram\public\resources\images\dog2.jpg">
+						<div class="reaction">
+							<i class="fa-regular fa-heart mr-3"></i>
+							<i class="fa-regular fa-comment"></i>
+						</div>
+					</div>
+					<div class="post-like">
+						<div class="profile-wrap mr-2">
+							<img class="profile" src="D:\factory\ws_sts_4151\instagram\public\resources\images\dog2.jpg">
+						</div>
+						<strong>user</strong>님 <strong>n</strong>명이 좋아합니다
+					</div>
+					<div class="post-cont">
+						<b class="mr-2">user</b>
+						<div>안녕하세용</div>
+					</div>
+					<div class="post-comment">
+						<div class="comment-list">
+							<div class="comment-count">댓글 n개 모두보기</div>
+							<div>
+								<b>user2</b> 안녕하세영
+							</div>
+						</div>
+						<div class="comment-input">
+							<input type="text" class="comment-txt form-control">
+							<button type="button" class="comment-btn btn">게시</button>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="my-info d-flex">
+					<div class="profile-wrap mr-2">
+						<img class="profile" src="D:\factory\ws_sts_4151\instagram\public\resources\images\dog2.jpg">
+					</div>
+					<div>
+						<b>user</b>
+						<div>자기소개</div>
+					</div>
+				</div>
+				<div class="footer">
+					<span>© 2022 INSTAGRAM FROM META</span>
+				</div>
+			</section>
+		</div>
+	</div>
+
+</html>
