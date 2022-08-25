@@ -22,17 +22,47 @@
 			background-color: #FAFAFA;
 		}
 		
-		.login-area {
+		article {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 80px auto 0;
+		    max-width: 935px;
+		    padding-bottom: 32px;
+		    width: 100%;
+		}
+		
+		.left-area {
+		    -webkit-align-self: center;
+		    -ms-flex-item-align: center;
+		    align-self: center;
+		    background-image: url(../resources/images/main.png);
+		    background-position: -46px 0;
+		    background-size: 468.32px 634.15px;
+		    -webkit-flex-basis: 380.32px;
+		    -ms-flex-preferred-size: 380.32px;
+		    flex-basis: 380.32px;
+		    height: 581.15px;
+		    margin-bottom: 12px;
+		    margin-right: 32px;
+		}
+		
+		.main-images {
+			margin: 24px 0 0 113px;
+    		position: relative;
+		}
+		
+		.login-form {
 			margin : auto;
-			margin-top : 130px;
 			width : 348px;
 			height: 374px;
 			border : 1px solid #DBDBDB;
 			background-color: white;
 		}
 		
-		.login-area #logo {
+		.login-form #logo {
 			height : 130px;
+			padding: 30px 0px 0px 80px;
 		}
 		
 		.login-input {
@@ -54,7 +84,7 @@
 			border-top : 1px solid #DBDBDB;
 		}
 		
-		.signup-area {
+		.signUp {
 			margin : auto;
 			margin-top : 10px;
 			padding : 20px;
@@ -66,31 +96,65 @@
 			justify-content: center;
 			align-items: center;
 		}
+		
+		footer {
+			width : 100%;
+			margin: auto;
+			color : #DBDBDB;
+		}
 	
 	</style>
 </head>
 <body>
 	<div id="wrap">
-		<section>
-			<div class="login-area">
-				<div id="logo"></div>
-				<div class="login-input">
-					<input type="text" id="email-input" class="form-control">
-					<input type="text" id="pw-input" class="form-control">
-					<button type="button" id="login-btn" class="btn btn-primary mb-3">로그인</button>
-					<div class="d-flex align-items-center w-100">
-						<div class="line col-5"></div>
-						<small class="m-2">또는</small>
-						<div class="line col-5"></div>
-					</div>
-					<a href="#" class="d-flex justify-content-center mt-3"><small>비밀번호를 잊으셨나요?</small></a>
+		<article>
+			<div class="left-area">
+				<div class="main-images">
+					<img src="../resources/images/main2.png" id="benner-image">
 				</div>
 			</div>
-			<div class="signup-area">
-				<span>계정이 없으신가요?</span>
-				<a href="#">가입하기</a>
+			<div class="right-area">
+				<div class="login-form">
+					<div id="logo">
+						<img src="../resources/images/logoBig.png">
+					</div>
+					<div class="login-input">
+						<input type="text" id="email-input" class="form-control">
+						<input type="text" id="pw-input" class="form-control">
+						<button type="button" id="login-btn" class="btn btn-primary mb-3">로그인</button>
+						<div class="d-flex align-items-center w-100">
+							<div class="line col-5"></div>
+							<small class="m-2">또는</small>
+							<div class="line col-5"></div>
+						</div>
+						<a href="#" class="d-flex justify-content-center mt-3"><small>비밀번호를 잊으셨나요?</small></a>
+					</div>
+				</div>
+				<div class="signUp">
+					<span>계정이 없으신가요?</span>
+					<a href="#">가입하기</a>
+				</div>
 			</div>
-		</section>
+		</article>
+		<!-- <footer>
+			<small>© 2022 Instagram from Meta</small>
+		</footer> -->
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+			var bannerList = ["../resources/images/main2.png", "../resources/images/main3.png", "../resources/images/main4.png", "../resources/images/main5.png"]
+			var currentImageIndex = 0;
+			
+			 setInterval (function(){
+				$("#benner-image").attr("src", bannerList[currentImageIndex]);
+				currentImageIndex++;
+				
+				if(currentImageIndex == bannerList.length) {
+					currentImageIndex = 0;
+				}
+			}, 2000)
+		});
+	</script>
 </body>
 </html>

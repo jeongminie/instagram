@@ -22,33 +22,85 @@
 			background-color: #FAFAFA;
 		}
 		
-		.signup-area {
+		.signup-form {
 			margin : auto;
 			margin-top : 50px;
 			width : 348px;
-			height: 374px;
 			border : 1px solid #DBDBDB;
 			background-color: white;
 		}
 		
-		.signup-area .logo {
-			width : 100%;
-			margin: auto;
+		.signup-form .logo {
+			height : 100px;
+			margin-bottom : 10px;
+			padding: 30px 0px 0px 80px;
 		}
+		
+		.signup-form h6 {
+			text-align: center;
+		}
+		
+		.line {
+			border-top : 1px solid #DBDBDB;
+			margin : 30px 0px 30px 0px;
+		}
+		
+		.signup-input {
+			padding: 0px 40px 0px 40px;
+		}
+		
+		.signup-input input {
+			margin-bottom: 5px;
+			background-color: #FAFAFA;
+		}
+		
+		#signup-btn {
+			height : 30px;
+			width : 100%;
+			margin-top: 10px;
+			margin-bottom : 30px;
+			text-align: center;
+			font-size: 13px;
+		}
+		
+		.signIn {
+			margin : auto;
+			margin-top : 10px;
+			padding : 20px;
+			width : 348px;
+			height: 60px;
+			border : 1px solid #DBDBDB;
+			background-color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
 		
 	</style>
 </head>
 <body>
 	<div id="wrap">
 		<section>
-			<div class="signup-area">
+			<div class="signup-form">
 				<div class="logo">
 					<img src="D:\factory\ws_sts_4151\instagram\public\resources\images\logoBig.PNG">
-					<div>친구들의 사진과 동영상을 보려면 가입하세요.</div>
 				</div>
-		
+				<div class="signup-input">
+					<h6>친구들의 사진과 동영상을 보려면<br>가입하세요.</h6>
+					<div class="line"></div>
+					<input type="text" id="email-input" class="form-control">
+					<input type="text" id="name-input" class="form-control">
+					<input type="text" id="nickName-input" class="form-control">
+					<input type="text" id="pw-input" class="form-control">
+					<button type="button" id="signup-btn" class="btn btn-primary">가입</button>
+				</div>
+			</div>
+			<div class="signIn">
+				<span>계정이 있으신가요?</span>
+				<a href="#">로그인</a>
+			</div>
 		</section>
-	
 	</div>
 
 </body>
